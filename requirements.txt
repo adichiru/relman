@@ -1,0 +1,5 @@
+PyInstaller==3.2
+argparse==1.2.1
+distribute==0.6.24
+wsgiref==0.1.2
+p4python==2015.2.1348262
