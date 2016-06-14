@@ -50,7 +50,7 @@ def computeTimestamp():
     timestamp = int(time.time())
     return str(timestamp)
 
-def updateProductDetailsInMnifest( manifest_file, d_name, d_value ):
+def updateProductDetailsInManifest( manifest_file, d_name, d_value ):
     with open(manifest_file, 'r+') as json_data:
         manifest_json_object = json.load(json_data, object_pairs_hook=collections.OrderedDict)
         for product_key, product_value in manifest_json_object.items():
@@ -122,12 +122,12 @@ def main( manifest_file, product, component, version, changelist, p4_location, t
     logging.info('----- New run: %s -----', now)
     if product:
         if version:
-            manifest_file_to_submit = updateProductDetailsInMnifest(manifest_file, 'version', version)
+            manifest_file_to_submit = updateProductDetailsInManifest(manifest_file, 'version', version)
         if changelist:
-            manifest_file_to_submit = updateProductDetailsInMnifest(manifest_file, 'changelist', changelist)
+            manifest_file_to_submit = updateProductDetailsInManifest(manifest_file, 'changelist', changelist)
         if timestamp:
             ts_value = computeTimestamp()
-            manifest_file_to_submit = updateProductDetailsInMnifest(manifest_file, 'timestamp', ts_value)
+            manifest_file_to_submit = updateProductDetailsInManifest(manifest_file, 'timestamp', ts_value)
 
     if component:
         if version:
